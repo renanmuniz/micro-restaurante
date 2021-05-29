@@ -1,4 +1,4 @@
-package com.cliente.microrestaurante;
+package com.cliente.microrestaurante.utils;
 
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
