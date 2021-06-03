@@ -5,14 +5,11 @@ import com.cliente.microrestaurante.controller.form.UsuarioForm;
 import com.cliente.microrestaurante.modelo.Usuario;
 import com.cliente.microrestaurante.repository.UsuarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.util.UriComponentsBuilder;
 
@@ -31,7 +28,7 @@ public class UsuarioController {
 
     @GetMapping
     public Page<UsuarioDto> listar(@RequestParam(required = false) String nomeUsuario,
-                                   @PageableDefault(sort="id", direction = Sort.Direction.ASC, page = 0, size = 10)
+                                   @PageableDefault(sort = "id", direction = Sort.Direction.ASC, page = 0, size = 10)
                                            Pageable paginacao) {
         Page<Usuario> usuarios;
         if (nomeUsuario == null) {
@@ -58,7 +55,7 @@ public class UsuarioController {
     @GetMapping("/{id}")
     public ResponseEntity<UsuarioDto> detalhar(@PathVariable Long id) {
         Optional<Usuario> usuarioOptional = usuarioRepository.findById(id);
-        if(usuarioOptional.isPresent()) {
+        if (usuarioOptional.isPresent()) {
             return ResponseEntity.ok(new UsuarioDto(usuarioOptional.get()));
         }
         return ResponseEntity.notFound().build();
@@ -68,7 +65,7 @@ public class UsuarioController {
     @Transactional
     public ResponseEntity<UsuarioDto> atualizar(@PathVariable Long id, @RequestBody @Valid UsuarioForm form) {
         Optional<Usuario> usuarioOptional = usuarioRepository.findById(id);
-        if(usuarioOptional.isPresent()) {
+        if (usuarioOptional.isPresent()) {
 
             Usuario usuario = form.atualizar(id, usuarioRepository, LocalDateTime.now());
             return ResponseEntity.ok(new UsuarioDto(usuario));
@@ -80,7 +77,7 @@ public class UsuarioController {
     @Transactional
     public ResponseEntity<?> remover(@PathVariable Long id) {
         Optional<Usuario> usuarioOptional = usuarioRepository.findById(id);
-        if(usuarioOptional.isPresent()) {
+        if (usuarioOptional.isPresent()) {
             usuarioRepository.deleteById(id);
             return ResponseEntity.ok().build();
         }

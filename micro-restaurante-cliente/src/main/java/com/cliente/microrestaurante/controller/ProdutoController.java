@@ -1,12 +1,8 @@
 package com.cliente.microrestaurante.controller;
 
 import com.cliente.microrestaurante.controller.dto.ProdutoDto;
-import com.cliente.microrestaurante.controller.dto.UsuarioDto;
-import com.cliente.microrestaurante.controller.form.UsuarioForm;
 import com.cliente.microrestaurante.modelo.Produto;
-import com.cliente.microrestaurante.modelo.Usuario;
 import com.cliente.microrestaurante.repository.ProdutoRepository;
-import com.cliente.microrestaurante.repository.UsuarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -14,12 +10,7 @@ import org.springframework.data.domain.Sort;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.util.UriComponentsBuilder;
 
-import javax.transaction.Transactional;
-import javax.validation.Valid;
-import java.net.URI;
-import java.time.LocalDateTime;
 import java.util.Optional;
 
 @RestController
@@ -31,7 +22,7 @@ public class ProdutoController {
 
     @GetMapping
     public Page<ProdutoDto> listar(@RequestParam(required = false)
-                                   @PageableDefault(sort="id", direction = Sort.Direction.ASC, page = 0, size = 10)
+                                   @PageableDefault(sort = "id", direction = Sort.Direction.ASC, page = 0, size = 10)
                                            Pageable paginacao) {
         Page<Produto> produtos;
         produtos = produtoRepository.carregaCardapio(paginacao);
@@ -41,7 +32,7 @@ public class ProdutoController {
     @GetMapping("/{id}")
     public ResponseEntity<ProdutoDto> detalhar(@PathVariable Long id) {
         Optional<Produto> produtoOptional = produtoRepository.findById(id);
-        if(produtoOptional.isPresent()) {
+        if (produtoOptional.isPresent()) {
             return ResponseEntity.ok(new ProdutoDto(produtoOptional.get()));
         }
         return ResponseEntity.notFound().build();
