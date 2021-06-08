@@ -20,16 +20,12 @@ public class Pedido {
     @Column(name = "id_usuario")
     public Long idUsuario;
 
-    @NotNull
-    @Positive
     @Column(name = "valortotal")
-    public BigDecimal valorTotal;
+    public Double valorTotal;
 
     @Column(name = "pago")
     public Boolean pago;
 
-    @NotNull
-    @NotEmpty
     @Column(name = "idpgtocartao")
     public String idPgtoCartao;
 
@@ -48,7 +44,6 @@ public class Pedido {
     @Column(name = "estornado")
     public Boolean estornado;
 
-    @NotNull
     @Column(name = "dthrpedido")
     public LocalDateTime dtHrPedido;
 
@@ -58,7 +53,12 @@ public class Pedido {
     public Pedido() {
     }
 
-    public Pedido(Long id, Long idUsuario, BigDecimal valorTotal, Boolean pago, String idPgtoCartao, Boolean aceito,
+    public Pedido(Long idUsuario, LocalDateTime dtHrPedido) {
+        this.idUsuario = idUsuario;
+        this.dtHrPedido = dtHrPedido;
+    }
+
+    public Pedido(Long id, Long idUsuario, Double valorTotal, Boolean pago, String idPgtoCartao, Boolean aceito,
                   Boolean pronto, Boolean entregue, Boolean cancelado, Boolean estornado, LocalDateTime dtHrPedido,
                   LocalDateTime dtHrFinalizado) {
         this.id = id;
@@ -91,11 +91,11 @@ public class Pedido {
         this.idUsuario = idUsuario;
     }
 
-    public BigDecimal getValorTotal() {
+    public Double getValorTotal() {
         return valorTotal;
     }
 
-    public void setValorTotal(BigDecimal valorTotal) {
+    public void setValorTotal(Double valorTotal) {
         this.valorTotal = valorTotal;
     }
 

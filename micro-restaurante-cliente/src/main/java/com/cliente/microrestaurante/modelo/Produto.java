@@ -29,14 +29,16 @@ public class Produto {
     @Column(name = "tamanho")
     public String tamanho;
 
-    public BigDecimal preco;
+    @NotNull
+    @Column(name = "preco")
+    public Double preco;
 
 
     public Produto() {
     }
 
 
-    public Produto(Long id, String nome, String descricao, String tamanho, BigDecimal preco) {
+    public Produto(Long id, String nome, String descricao, String tamanho, Double preco) {
         this.id = id;
         this.nome = nome;
         this.descricao = descricao;
@@ -76,11 +78,11 @@ public class Produto {
         this.tamanho = tamanho;
     }
 
-    public BigDecimal getPreco() {
+    public Double getPreco() {
         return preco;
     }
 
-    public void setPreco(BigDecimal preco) {
+    public void setPreco(Double preco) {
         this.preco = preco;
     }
 

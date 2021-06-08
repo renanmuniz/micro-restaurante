@@ -4,11 +4,15 @@ import com.cliente.microrestaurante.modelo.Pedido;
 import org.springframework.data.domain.Page;
 
 import java.math.BigDecimal;
+import java.text.DecimalFormat;
+import java.text.NumberFormat;
+import java.text.ParseException;
 import java.time.LocalDateTime;
+import java.util.Locale;
 
 public class PedidoDto {
     private Long id;
-    private BigDecimal valorTotal;
+    private String valorTotal;
     private Boolean pago;
     private Boolean aceito;
     private Boolean pronto;
@@ -20,7 +24,7 @@ public class PedidoDto {
 
     public PedidoDto(Pedido p) {
         this.id = p.id;
-        this.valorTotal = p.valorTotal;
+        this.valorTotal = p.valorTotal.toString();
         this.pago = p.pago;
         this.aceito = p.aceito;
         this.pronto = p.pronto;
@@ -29,10 +33,20 @@ public class PedidoDto {
         this.estornado = p.estornado;
         this.dtHrPedido = p.dtHrPedido;
         this.dtHrFinalizado = p.dtHrFinalizado;
+        try{
+            formataValor(p.valorTotal);
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
     }
 
     public static Page<PedidoDto> converter(Page<Pedido> pedidos) {
         return pedidos.map(PedidoDto::new);
+    }
+
+    public void formataValor(Double v) throws ParseException {
+        NumberFormat DINHEIRO_NF = NumberFormat.getCurrencyInstance(new Locale("pt", "BR"));
+        this.valorTotal=DINHEIRO_NF.format(v);
     }
 
     public Long getId() {
@@ -43,11 +57,11 @@ public class PedidoDto {
         this.id = id;
     }
 
-    public BigDecimal getValorTotal() {
+    public String getValorTotal() {
         return valorTotal;
     }
 
-    public void setValorTotal(BigDecimal valorTotal) {
+    public void setValorTotal(String valorTotal) {
         this.valorTotal = valorTotal;
     }
 

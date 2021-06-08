@@ -11,7 +11,7 @@ public class ProdutoDto {
     private String nome;
     private String descricao;
     private String tamanho;
-    private BigDecimal preco;
+    private Double preco;
 
     public ProdutoDto(Produto p) {
         this.id = p.getId();
@@ -57,11 +57,11 @@ public class ProdutoDto {
         this.tamanho = tamanho;
     }
 
-    public BigDecimal getPreco() {
+    public Double getPreco() {
         return preco;
     }
 
-    public void setPreco(BigDecimal preco) {
+    public void setPreco(Double preco) {
         this.preco = preco;
     }
 }

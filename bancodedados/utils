@@ -1,4 +1,20 @@
 
+use restaurantedb;
+
+INSERT INTO usuario(nome,senha,dthrcriacao) VALUES ('admin','$2a$10$k05ciT7ZaENN/aNaHnHQp.1Ni4TsxiNhddiANEuQjA5AA1SPNSZQu',NOW()); /*admin*/
+
+insert into produto(nome, descricao, tamanho, preco, dthrcriacao)
+values('calabresa', 'calabresa, mussarela, cebola, azeitona', 'Grande (8 pedaços)',45.5, now());
+
+insert into produto(nome, descricao, tamanho, preco, dthrcriacao)
+values('bacon', 'bacon, mussarela, cebola, azeitona', 'Grande (8 pedaços)',50.5, now());
+
+insert into produto(nome, descricao, tamanho, preco, dthrcriacao)
+values('portuguesa', 'ovo, ervilha, presunto, mussarela, cebola, azeitona', 'Grande (8 pedaços)',53.5, now());
+
+insert into produto(nome, descricao, tamanho, preco, dthrcriacao)
+values('frango com catupiry', 'frango, catupiry, mussarela, azeitona', 'Grande (8 pedaços)',55.5, now());
+
 
 -- select de produtos do pedido:
 SELECT produto.nome, produtos_pedido.quantidade, produtos_pedido.valor, produtos_pedido.observacao
