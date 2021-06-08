@@ -78,6 +78,7 @@ public class PedidoController {
         pedidoRepository.save(pedido);
 
         return ResponseEntity.ok(new PedidoDto(pedido));
+        
     }
 
 }
