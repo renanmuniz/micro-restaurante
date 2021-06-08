@@ -1,0 +1,9 @@
+
+
+-- select de produtos do pedido:
+SELECT produto.nome, produtos_pedido.quantidade, produtos_pedido.valor, produtos_pedido.observacao
+FROM produtos_pedido 
+INNER JOIN pedido on (pedido.id = produtos_pedido.id_pedido)
+INNER JOIN produto on (produtos_pedido.id_produto = produto.id) 
+where pedido.id=2
+order by produto.nome ASC; 
