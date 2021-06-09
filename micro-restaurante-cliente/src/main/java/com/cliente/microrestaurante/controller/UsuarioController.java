@@ -4,6 +4,7 @@ import com.cliente.microrestaurante.controller.dto.UsuarioDto;
 import com.cliente.microrestaurante.controller.form.UsuarioForm;
 import com.cliente.microrestaurante.modelo.Usuario;
 import com.cliente.microrestaurante.repository.UsuarioRepository;
+import com.cliente.microrestaurante.service.UsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -24,39 +25,29 @@ import java.util.Optional;
 public class UsuarioController {
 
     @Autowired
-    private UsuarioRepository usuarioRepository;
+    private UsuarioService usuarioService;
 
     @GetMapping
     public Page<UsuarioDto> listar(@RequestParam(required = false) String nomeUsuario,
                                    @PageableDefault(sort = "id", direction = Sort.Direction.ASC, page = 0, size = 10)
                                            Pageable paginacao) {
-        Page<Usuario> usuarios;
-        if (nomeUsuario == null) {
-            usuarios = usuarioRepository.findAll(paginacao);
-        } else {
-            usuarios = usuarioRepository.findByNome(nomeUsuario, paginacao);
-        }
-        return UsuarioDto.converter(usuarios);
+        return usuarioService.listar(nomeUsuario, paginacao);
     }
 
     @PostMapping
     @Transactional
     public ResponseEntity<UsuarioDto> cadastrar(@RequestBody @Valid UsuarioForm form,
                                                 UriComponentsBuilder uriBuilder) {
-        Usuario usuario = form.converter();
-
-        usuario.setDtHrCriacao(LocalDateTime.now());
-        usuarioRepository.save(usuario);
-
-        URI uri = uriBuilder.path("/usuarios/{id}").buildAndExpand(usuario.getId()).toUri();
-        return ResponseEntity.created(uri).body(new UsuarioDto(usuario));
+        UsuarioDto novoUsuario = usuarioService.cadastrar(form);
+        URI uri = uriBuilder.path("/usuarios/{id}").buildAndExpand(novoUsuario.getId()).toUri();
+        return ResponseEntity.created(uri).body(novoUsuario);
     }
 
     @GetMapping("/{id}")
     public ResponseEntity<UsuarioDto> detalhar(@PathVariable Long id) {
-        Optional<Usuario> usuarioOptional = usuarioRepository.findById(id);
-        if (usuarioOptional.isPresent()) {
-            return ResponseEntity.ok(new UsuarioDto(usuarioOptional.get()));
+        UsuarioDto usuario = usuarioService.detalhar(id);
+        if (usuario != null) {
+            return ResponseEntity.ok(usuario);
         }
         return ResponseEntity.notFound().build();
     }
@@ -64,11 +55,9 @@ public class UsuarioController {
     @PutMapping("/{id}")
     @Transactional
     public ResponseEntity<UsuarioDto> atualizar(@PathVariable Long id, @RequestBody @Valid UsuarioForm form) {
-        Optional<Usuario> usuarioOptional = usuarioRepository.findById(id);
-        if (usuarioOptional.isPresent()) {
-
-            Usuario usuario = form.atualizar(id, usuarioRepository, LocalDateTime.now());
-            return ResponseEntity.ok(new UsuarioDto(usuario));
+        UsuarioDto usuario = usuarioService.atualizar(id, form);
+        if (usuario != null) {
+            return ResponseEntity.ok(usuario);
         }
         return ResponseEntity.notFound().build();
     }
@@ -76,9 +65,7 @@ public class UsuarioController {
     @DeleteMapping("/{id}")
     @Transactional
     public ResponseEntity<?> remover(@PathVariable Long id) {
-        Optional<Usuario> usuarioOptional = usuarioRepository.findById(id);
-        if (usuarioOptional.isPresent()) {
-            usuarioRepository.deleteById(id);
+        if (usuarioService.remover(id)) {
             return ResponseEntity.ok().build();
         }
         return ResponseEntity.notFound().build();
