@@ -1,14 +1,10 @@
 package com.cliente.microrestaurante.controller;
 
-import com.cliente.microrestaurante.config.security.TokenService;
 import com.cliente.microrestaurante.controller.dto.TokenDto;
 import com.cliente.microrestaurante.controller.form.LoginForm;
+import com.cliente.microrestaurante.service.AutenticaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.authentication.AuthenticationManager;
-import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
-import org.springframework.security.core.Authentication;
-import org.springframework.security.core.AuthenticationException;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -19,20 +15,16 @@ import javax.validation.Valid;
 @RestController
 @RequestMapping("/auth")
 public class AutenticacaoController {
-    @Autowired
-    private AuthenticationManager authenticationManager;
 
     @Autowired
-    private TokenService tokenService;
+    private AutenticaService autenticaService;
 
     @PostMapping
     public ResponseEntity<TokenDto> autenticar(@RequestBody @Valid LoginForm form) {
-        UsernamePasswordAuthenticationToken dadosLogin = form.converter();
-        try {
-            Authentication authentication = authenticationManager.authenticate(dadosLogin);
-            String token = tokenService.gerarToken(authentication);
-            return ResponseEntity.ok(new TokenDto(token, "Bearer"));
-        } catch (AuthenticationException e) {
+        TokenDto token = autenticaService.autenticar(form);
+        if(token != null){
+            return ResponseEntity.ok(token);
+        } else {
             return ResponseEntity.badRequest().build();
         }
     }

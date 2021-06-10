@@ -8,6 +8,7 @@ import com.cliente.microrestaurante.modelo.ProdutosPedido;
 import com.cliente.microrestaurante.repository.PedidoRepository;
 import com.cliente.microrestaurante.repository.ProdutoRepository;
 import com.cliente.microrestaurante.repository.ProdutosPedidoRepository;
+import com.cliente.microrestaurante.service.PedidoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -29,20 +30,14 @@ import java.util.Optional;
 public class PedidoController {
 
     @Autowired
-    private PedidoRepository pedidoRepository;
-
-    @Autowired
-    private ProdutoRepository produtoRepository;
-
-    @Autowired
-    private ProdutosPedidoRepository produtosPedidoRepository;
+    PedidoService pedidoService;
 
     @GetMapping
     public ResponseEntity<PedidoDto> buscarEspecifico(@RequestParam(required = true) Long usuario,
                                                       @RequestParam(required = true) Long pedido) {
-        Optional<Pedido> pedidoOptional = pedidoRepository.carregaPedidoEspecifico(usuario, pedido);
-        if (pedidoOptional.isPresent()) {
-            return ResponseEntity.ok(new PedidoDto(pedidoOptional.get()));
+        PedidoDto ped = pedidoService.buscarEspecifico(usuario, pedido);
+        if (ped != null) {
+            return ResponseEntity.ok(ped);
         }
         return ResponseEntity.notFound().build();
     }
@@ -51,34 +46,14 @@ public class PedidoController {
     public Page<PedidoDto> buscarTodos(@RequestParam(required = true) Long usuario,
                                        @PageableDefault(sort = "id", direction = Sort.Direction.ASC, page = 0, size = 10)
                                                Pageable paginacao) {
-        Page<Pedido> pedidos = pedidoRepository.carregaPedidosTodos(usuario, paginacao);
-        return PedidoDto.converter(pedidos);
+        return pedidoService.buscarTodos(usuario, paginacao);
     }
 
     @PostMapping
     @Transactional
     public ResponseEntity<PedidoDto> cadastrar(@RequestParam(required = true) Long idUsuario,
-                                               @RequestBody List<ProdutosPedidoForm> produtos,
-                                               UriComponentsBuilder uriBuilder) {
-
-        Pedido pedido = new Pedido(idUsuario, LocalDateTime.now());
-        Pedido pedidoSalvo = pedidoRepository.save(pedido);
-        Double valorTotalAux = 0.0;
-
-        for(int x = 0; x < produtos.size(); x++) {
-            ProdutosPedido produtoPedido = produtos.get(x).converter();
-            Produto p = produtoRepository.findById(produtos.get(x).idProduto).get();
-            produtoPedido.setIdPedido(pedidoSalvo.id);
-            produtoPedido.setValor(produtoPedido.quantidade * p.preco);
-            produtosPedidoRepository.save(produtoPedido);
-            valorTotalAux += produtoPedido.quantidade * p.preco;
-        }
-
-        pedido.valorTotal = valorTotalAux;
-        pedidoRepository.save(pedido);
-
-        return ResponseEntity.ok(new PedidoDto(pedido));
-        
+                                               @RequestBody List<ProdutosPedidoForm> produtos) {
+        return ResponseEntity.ok(pedidoService.cadastrar(idUsuario, produtos));
     }
 
 }
