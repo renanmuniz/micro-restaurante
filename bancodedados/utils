@@ -23,3 +23,19 @@ INNER JOIN pedido on (pedido.id = produtos_pedido.id_pedido)
 INNER JOIN produto on (produtos_pedido.id_produto = produto.id) 
 where pedido.id=2
 order by produto.nome ASC; 
+
+
+
+
+
+use creditcarddb;
+
+insert into usuario(nome,senha) values ('R3885','abc123');
+
+
+insert into cartao(numero_cartao, nome, valor_credito_disp)
+values('1234-5678-9012-3456','RENAN MUNIZ MERLO', 2000.00);
+
+
+insert into compras(id_cartao,id_usuario,valor,dthrcompra)
+values(1,1,100.0,now());
