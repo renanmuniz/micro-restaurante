@@ -18,7 +18,7 @@ public class SwaggerConfig {
     public Docket cadastroClientesApi() {
         return new Docket(DocumentationType.SWAGGER_2)
                 .select()
-                .apis(RequestHandlerSelectors.basePackage("com.cliente.microrestaurante"))
+                .apis(RequestHandlerSelectors.basePackage("com.microcreditcard"))
                 .paths(PathSelectors.ant("/**"))
                 .build()
                 .ignoredParameterTypes(Usuario.class)

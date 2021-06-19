@@ -14,4 +14,6 @@ public interface CartaoRepository extends JpaRepository<Cartao, Long> {
     Page<Cartao> findByNome(String nome, Pageable paginacao);
 
     Cartao getOne(Long id);
+
+    Cartao findByNumeroCartao(String numeroCartao);
 }
