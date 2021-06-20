@@ -7,6 +7,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 
+import java.sql.Timestamp;
 import java.time.LocalDateTime;
 import java.util.Optional;
 
@@ -15,7 +16,8 @@ public interface CompraRepository extends JpaRepository<Compra, Long> {
 
     Page<Compra> findByidusuario(Long id, Pageable paginacao);
 
-    @Query(value = "select * from compras where id_cartao = :idcartao" +
+    @Query(value = "select * from compras " +
+            "where id_cartao = :idcartao" +
             " and aprovada = true " +
             " and estornada = false" +
             " and dtHrCompra between :dtInicio and :dtFim" +
