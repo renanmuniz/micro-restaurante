@@ -90,18 +90,22 @@ public class CompraService {
         Cartao cartao = cartaoRepository.findByNumeroCartao(form.getNumeroCartao());
         Double limiteDisp = cartao.valorCreditoDisponivel
                 - compraRepository.limiteUtilizado(cartao.id);
+        Compra compra = new Compra();
+        compra.idcartao = cartao.id;
+        compra.idusuario = form.getIdUsuario();
+        compra.numerocartao = cartao.getNumeroCartao();
+        compra.titularcartao = cartao.getNome();
+        compra.valor = form.getValor();
+        compra.estornada = false;
+        compra.paga = false;
+        compra.dtHrCompra = LocalDateTime.now();
         if (form.getValor() > limiteDisp) {
+            compra.aprovada = false;
+            compraRepository.save(compra);
             return null;
         } else {
-            Compra compra = new Compra();
-            compra.idcartao = cartao.id;
-            compra.idusuario = form.getIdUsuario();
-            compra.numerocartao = cartao.getNumeroCartao();
-            compra.titularcartao = cartao.getNome();
-            compra.valor = form.getValor();
-            compra.dtHrCompra = LocalDateTime.now();
-            CompraDto compraDto = new CompraDto(compraRepository.save(compra));
-            return compraDto;
+            compra.aprovada = true;
+            return new CompraDto(compraRepository.save(compra));
         }
     }
 

@@ -80,8 +80,11 @@ public class CompraController {
     public ResponseEntity<CompraDto> cadastrar(@RequestBody @Valid CompraForm form,
                                             UriComponentsBuilder uriBuilder) {
         CompraDto novaCompra = compraService.cadastrar(form);
-        URI uri = uriBuilder.path("/compras/{id}").buildAndExpand(novaCompra.getId()).toUri();
-        return ResponseEntity.created(uri).body(novaCompra);
+        if (novaCompra != null) {
+            URI uri = uriBuilder.path("/compras/{id}").buildAndExpand(novaCompra.getId()).toUri();
+            return ResponseEntity.created(uri).body(novaCompra);
+        }
+        return ResponseEntity.badRequest().build();
     }
 
     @GetMapping("/{id}")

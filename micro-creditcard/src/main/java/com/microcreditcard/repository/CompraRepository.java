@@ -68,6 +68,6 @@ public interface CompraRepository extends JpaRepository<Compra, Long> {
     @Query(value="select compras.*, cartao.numero_cartao as numerocartao, cartao.nome as titularcartao" +
             " from compras" +
             " INNER JOIN cartao on (compras.id_cartao = cartao.id)" +
-            " where compras.id = :idCompra;", nativeQuery = true)
+            " where compras.id = :idCompra", nativeQuery = true)
     Optional<Compra> detalharCompra (Long idCompra);
 }
