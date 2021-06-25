@@ -1,5 +1,6 @@
 package com.cliente.microrestaurante.controller;
 
+import com.cliente.microrestaurante.MicroRestauranteClienteApplication;
 import com.cliente.microrestaurante.controller.dto.PedidoDto;
 import com.cliente.microrestaurante.controller.form.ProdutosPedidoForm;
 import com.cliente.microrestaurante.modelo.Pedido;
@@ -8,6 +9,7 @@ import com.cliente.microrestaurante.modelo.ProdutosPedido;
 import com.cliente.microrestaurante.repository.PedidoRepository;
 import com.cliente.microrestaurante.repository.ProdutoRepository;
 import com.cliente.microrestaurante.repository.ProdutosPedidoRepository;
+import com.cliente.microrestaurante.service.PagamentoService;
 import com.cliente.microrestaurante.service.PedidoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -32,6 +34,9 @@ public class PedidoController {
     @Autowired
     PedidoService pedidoService;
 
+    @Autowired
+    PagamentoService pagamentoService;
+
     @GetMapping
     public ResponseEntity<PedidoDto> buscarEspecifico(@RequestParam(required = true) Long usuario,
                                                       @RequestParam(required = true) Long pedido) {
@@ -52,8 +57,19 @@ public class PedidoController {
     @PostMapping
     @Transactional
     public ResponseEntity<PedidoDto> cadastrar(@RequestParam(required = true) Long idUsuario,
+                                               @RequestParam(required = true) String numeroCartao,
                                                @RequestBody List<ProdutosPedidoForm> produtos) {
-        return ResponseEntity.ok(pedidoService.cadastrar(idUsuario, produtos));
+        PedidoDto pedido = pedidoService.cadastrar(idUsuario, produtos);
+        String valor = pedido.getValorTotal().substring(3).replace(',','.');
+        Boolean aprovado = pagamentoService.pagar(
+                MicroRestauranteClienteApplication.creditCardClientNumber,
+                numeroCartao,
+                Double.parseDouble(valor));
+
+        if(aprovado) {
+            return ResponseEntity.ok(pedidoService.cadastrar(idUsuario, produtos));
+        }
+        return ResponseEntity.badRequest().build();
     }
 
 }
