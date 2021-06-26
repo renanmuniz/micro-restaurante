@@ -85,7 +85,7 @@ public class CompraController {
             URI uri = uriBuilder.path("/compras/{id}").buildAndExpand(novaCompra.getId()).toUri();
             return ResponseEntity.created(uri).body(novaCompra);
         }
-        return ResponseEntity.status(HttpStatus.NOT_ACCEPTABLE).build();
+        return ResponseEntity.ok().build();
     }
 
     @GetMapping("/{id}")

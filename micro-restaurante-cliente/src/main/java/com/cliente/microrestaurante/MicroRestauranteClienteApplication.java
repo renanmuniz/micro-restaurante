@@ -5,6 +5,9 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.data.web.config.EnableSpringDataWebSupport;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
+import java.util.Date;
+import java.util.Timer;
+
 @SpringBootApplication
 @EnableSpringDataWebSupport
 @EnableSwagger2
@@ -14,13 +17,10 @@ public class MicroRestauranteClienteApplication {
 
         SpringApplication.run(MicroRestauranteClienteApplication.class, args);
 
-        //Numero de cliente perante a operadora de cartao:
-        final Long creditCardClientNumber = 1L;
-        //TODO Aqui fazer o processo de autenticacao igual no projeto micro-pedido no meu notebook.
+        //Autentica Api externa de pagamento CreditCardApi:
+        Timer timer = new Timer();
+        AutenticaCreditCardAPi autentica = new AutenticaCreditCardAPi();
+        timer.schedule(autentica, new Date(), 570000); //milliseconds
 
     }
-
-
-
-
 }

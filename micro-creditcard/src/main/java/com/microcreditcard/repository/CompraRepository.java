@@ -57,7 +57,7 @@ public interface CompraRepository extends JpaRepository<Compra, Long> {
             nativeQuery = true)
     Page<Compra> comprasPagas(Long idcartao, LocalDateTime dtInicio, LocalDateTime dtFim, Pageable paginacao);
 
-    @Query(value = "select sum(valor) from compras where id_cartao = 1" +
+    @Query(value = "select COALESCE(sum(valor), 0) from compras where id_cartao = :idcartao" +
             " and aprovada = true" +
             " and estornada = false" +
             " and paga = false",

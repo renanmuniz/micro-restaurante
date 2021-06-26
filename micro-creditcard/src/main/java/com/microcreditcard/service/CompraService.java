@@ -88,8 +88,8 @@ public class CompraService {
 
     public CompraDto cadastrar(CompraForm form) {
         Cartao cartao = cartaoRepository.findByNumeroCartao(form.getNumeroCartao());
-        Double limiteDisp = cartao.valorCreditoDisponivel
-                - compraRepository.limiteUtilizado(cartao.id);
+        Double limiteUtilizado = compraRepository.limiteUtilizado(cartao.id);
+        Double limiteDisp = cartao.valorCreditoDisponivel - limiteUtilizado;
         Compra compra = new Compra();
         compra.idcartao = cartao.id;
         compra.idusuario = form.getIdUsuario();

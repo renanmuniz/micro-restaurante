@@ -9,6 +9,7 @@ import com.cliente.microrestaurante.modelo.ProdutosPedido;
 import com.cliente.microrestaurante.repository.PedidoRepository;
 import com.cliente.microrestaurante.repository.ProdutoRepository;
 import com.cliente.microrestaurante.repository.ProdutosPedidoRepository;
+import com.cliente.microrestaurante.service.CompraDto;
 import com.cliente.microrestaurante.service.PagamentoService;
 import com.cliente.microrestaurante.service.PedidoService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -60,16 +61,14 @@ public class PedidoController {
                                                @RequestParam(required = true) String numeroCartao,
                                                @RequestBody List<ProdutosPedidoForm> produtos) {
         PedidoDto pedido = pedidoService.cadastrar(idUsuario, produtos);
-        String valor = pedido.getValorTotal().substring(3).replace(',','.');
-        Boolean aprovado = pagamentoService.pagar(
-                MicroRestauranteClienteApplication.creditCardClientNumber,
-                numeroCartao,
-                Double.parseDouble(valor));
-
-        if(aprovado) {
-            return ResponseEntity.ok(pedidoService.cadastrar(idUsuario, produtos));
+        CompraDto compra = pagamentoService.pagar(1L, numeroCartao, pedido.getValorTotal());
+        if(compra==null) {
+            pedidoService.setarPago(pedido.getId(),false);
+            return ResponseEntity.badRequest().build();
         }
-        return ResponseEntity.badRequest().build();
+        Pedido pedidoPago = pedidoService.setarPago(pedido.getId(),true);
+        return ResponseEntity.ok(new PedidoDto(pedidoPago));
+
     }
 
 }

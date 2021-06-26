@@ -63,4 +63,13 @@ public class PedidoService {
         return new PedidoDto(pedido);
     }
 
+    public Pedido setarPago(Long idPedido, Boolean pago) {
+        Pedido pedido = pedidoRepository.getOne(idPedido);
+        pedido.setPago(pago);
+        pedidoRepository.save(pedido);
+        return pedido;
+    }
+
+
+
 }

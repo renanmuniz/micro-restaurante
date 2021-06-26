@@ -12,7 +12,7 @@ import java.util.Locale;
 
 public class PedidoDto {
     private Long id;
-    private String valorTotal;
+    private Double valorTotal;
     private Boolean pago;
     private Boolean aceito;
     private Boolean pronto;
@@ -24,7 +24,7 @@ public class PedidoDto {
 
     public PedidoDto(Pedido p) {
         this.id = p.id;
-        this.valorTotal = p.valorTotal.toString();
+        this.valorTotal = p.valorTotal;
         this.pago = p.pago;
         this.aceito = p.aceito;
         this.pronto = p.pronto;
@@ -33,21 +33,21 @@ public class PedidoDto {
         this.estornado = p.estornado;
         this.dtHrPedido = p.dtHrPedido;
         this.dtHrFinalizado = p.dtHrFinalizado;
-        try{
-            formataValor(p.valorTotal);
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
-        }
+//        try{
+//            formataValor(p.valorTotal);
+//        } catch (Exception e) {
+//            System.out.println(e.getMessage());
+//        }
     }
 
     public static Page<PedidoDto> converter(Page<Pedido> pedidos) {
         return pedidos.map(PedidoDto::new);
     }
 
-    public void formataValor(Double v) throws ParseException {
-        NumberFormat DINHEIRO_NF = NumberFormat.getCurrencyInstance(new Locale("pt", "BR"));
-        this.valorTotal=DINHEIRO_NF.format(v);
-    }
+//    public void formataValor(Double v) throws ParseException {
+//        NumberFormat DINHEIRO_NF = NumberFormat.getCurrencyInstance(new Locale("pt", "BR"));
+//        this.valorTotal=DINHEIRO_NF.format(v);
+//    }
 
     public Long getId() {
         return id;
@@ -57,11 +57,11 @@ public class PedidoDto {
         this.id = id;
     }
 
-    public String getValorTotal() {
+    public Double getValorTotal() {
         return valorTotal;
     }
 
-    public void setValorTotal(String valorTotal) {
+    public void setValorTotal(Double valorTotal) {
         this.valorTotal = valorTotal;
     }
 

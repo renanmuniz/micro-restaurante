@@ -10,6 +10,9 @@ public class CompraDto {
     private Long idusuario;
     private Double valor;
 
+    public CompraDto() {
+    }
+
     public CompraDto(Compra compra) {
         this.id = compra.getId();
         this.idcartao = compra.getIdcartao();
