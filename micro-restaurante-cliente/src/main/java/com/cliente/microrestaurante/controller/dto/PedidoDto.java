@@ -3,12 +3,7 @@ package com.cliente.microrestaurante.controller.dto;
 import com.cliente.microrestaurante.modelo.Pedido;
 import org.springframework.data.domain.Page;
 
-import java.math.BigDecimal;
-import java.text.DecimalFormat;
-import java.text.NumberFormat;
-import java.text.ParseException;
 import java.time.LocalDateTime;
-import java.util.Locale;
 
 public class PedidoDto {
     private Long id;
@@ -21,6 +16,7 @@ public class PedidoDto {
     private Boolean estornado;
     private LocalDateTime dtHrPedido;
     private LocalDateTime dtHrFinalizado;
+    private String uuidpagamento;
 
     public PedidoDto(Pedido p) {
         this.id = p.id;
@@ -33,6 +29,7 @@ public class PedidoDto {
         this.estornado = p.estornado;
         this.dtHrPedido = p.dtHrPedido;
         this.dtHrFinalizado = p.dtHrFinalizado;
+        this.uuidpagamento = p.uuidpagamento;
 //        try{
 //            formataValor(p.valorTotal);
 //        } catch (Exception e) {
@@ -127,5 +124,13 @@ public class PedidoDto {
 
     public void setDtHrFinalizado(LocalDateTime dtHrFinalizado) {
         this.dtHrFinalizado = dtHrFinalizado;
+    }
+
+    public String getUuidpagamento() {
+        return uuidpagamento;
+    }
+
+    public void setUuidpagamento(String uuidpagamento) {
+        this.uuidpagamento = uuidpagamento;
     }
 }

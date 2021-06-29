@@ -1,14 +1,8 @@
 package com.cliente.microrestaurante.controller;
 
-import com.cliente.microrestaurante.MicroRestauranteClienteApplication;
 import com.cliente.microrestaurante.controller.dto.PedidoDto;
 import com.cliente.microrestaurante.controller.form.ProdutosPedidoForm;
 import com.cliente.microrestaurante.modelo.Pedido;
-import com.cliente.microrestaurante.modelo.Produto;
-import com.cliente.microrestaurante.modelo.ProdutosPedido;
-import com.cliente.microrestaurante.repository.PedidoRepository;
-import com.cliente.microrestaurante.repository.ProdutoRepository;
-import com.cliente.microrestaurante.repository.ProdutosPedidoRepository;
 import com.cliente.microrestaurante.service.CompraDto;
 import com.cliente.microrestaurante.service.PagamentoService;
 import com.cliente.microrestaurante.service.PedidoService;
@@ -19,14 +13,9 @@ import org.springframework.data.domain.Sort;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.util.UriComponentsBuilder;
 
 import javax.transaction.Transactional;
-import java.math.BigDecimal;
-import java.net.URI;
-import java.time.LocalDateTime;
 import java.util.List;
-import java.util.Optional;
 
 @RestController
 @RequestMapping("/pedido")
@@ -63,10 +52,10 @@ public class PedidoController {
         PedidoDto pedido = pedidoService.cadastrar(idUsuario, produtos);
         CompraDto compra = pagamentoService.pagar(1L, numeroCartao, pedido.getValorTotal());
         if(compra==null) {
-            pedidoService.setarPago(pedido.getId(),false);
+            pedidoService.setarPago(pedido.getId(),false, "");
             return ResponseEntity.badRequest().build();
         }
-        Pedido pedidoPago = pedidoService.setarPago(pedido.getId(),true);
+        Pedido pedidoPago = pedidoService.setarPago(pedido.getId(),true, compra.getUuidpagamento());
         return ResponseEntity.ok(new PedidoDto(pedidoPago));
 
     }

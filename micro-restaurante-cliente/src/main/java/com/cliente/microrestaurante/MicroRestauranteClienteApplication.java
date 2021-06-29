@@ -20,7 +20,7 @@ public class MicroRestauranteClienteApplication {
         //Autentica Api externa de pagamento CreditCardApi:
         Timer timer = new Timer();
         AutenticaCreditCardAPi autentica = new AutenticaCreditCardAPi();
-        timer.schedule(autentica, new Date(), 570000); //milliseconds
+        timer.schedule(autentica, new Date(), 500000); //milliseconds
 
     }
 }

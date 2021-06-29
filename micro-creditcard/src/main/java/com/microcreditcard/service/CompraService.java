@@ -6,17 +6,16 @@ import com.microcreditcard.modelo.Cartao;
 import com.microcreditcard.modelo.Compra;
 import com.microcreditcard.repository.CartaoRepository;
 import com.microcreditcard.repository.CompraRepository;
-import org.apache.tomcat.jni.Local;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
-import java.sql.Timestamp;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Optional;
+import java.util.UUID;
 
 @Service
 public class CompraService {
@@ -105,6 +104,7 @@ public class CompraService {
             return null;
         } else {
             compra.aprovada = true;
+            compra.uuidpagamento = UUID.randomUUID().toString();
             return new CompraDto(compraRepository.save(compra));
         }
     }

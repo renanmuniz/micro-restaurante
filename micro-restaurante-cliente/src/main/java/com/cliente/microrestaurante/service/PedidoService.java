@@ -11,9 +11,7 @@ import com.cliente.microrestaurante.repository.ProdutosPedidoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.RequestBody;
 
 import java.time.LocalDateTime;
 import java.util.List;
@@ -63,8 +61,9 @@ public class PedidoService {
         return new PedidoDto(pedido);
     }
 
-    public Pedido setarPago(Long idPedido, Boolean pago) {
+    public Pedido setarPago(Long idPedido, Boolean pago, String uuidcompra) {
         Pedido pedido = pedidoRepository.getOne(idPedido);
+        pedido.setUuidpagamento(uuidcompra);
         pedido.setPago(pago);
         pedidoRepository.save(pedido);
         return pedido;

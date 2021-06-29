@@ -35,17 +35,20 @@ public class Compra {
     public Double valor;
 
     @NotNull
-    @Column(name="dthrcompra")
+    @Column(name = "dthrcompra")
     public LocalDateTime dtHrCompra;
 
-    @Column(name="aprovada")
+    @Column(name = "aprovada")
     public Boolean aprovada;
 
-    @Column(name="estornada")
+    @Column(name = "estornada")
     public Boolean estornada;
 
-    @Column(name="paga")
+    @Column(name = "paga")
     public Boolean paga;
+
+    @Column(name = "uuidpagamento")
+    public String uuidpagamento;
 
     public Compra() {
     }
@@ -54,28 +57,6 @@ public class Compra {
         this.numerocartao = numeroCartao;
         this.idusuario = idUsuario;
         this.valor = valor;
-    }
-
-    public Compra(Long idcartao, String numerocartao, String titularcartao, Long idusuario, Double valor, LocalDateTime dtHrCompra) {
-        this.idcartao = idcartao;
-        this.numerocartao = numerocartao;
-        this.titularcartao = titularcartao;
-        this.idusuario = idusuario;
-        this.valor = valor;
-        this.dtHrCompra = dtHrCompra;
-    }
-
-    public Compra(Long id, Long idcartao, String numerocartao, String titularcartao, Long idusuario, Double valor, LocalDateTime dtHrCompra, Boolean aprovada, Boolean estornada, Boolean paga) {
-        this.id = id;
-        this.idcartao = idcartao;
-        this.numerocartao = numerocartao;
-        this.titularcartao = titularcartao;
-        this.idusuario = idusuario;
-        this.valor = valor;
-        this.dtHrCompra = dtHrCompra;
-        this.aprovada = aprovada;
-        this.estornada = estornada;
-        this.paga = paga;
     }
 
     public Long getId() {
@@ -158,6 +139,14 @@ public class Compra {
         this.paga = paga;
     }
 
+    public String getUuidpagamento() {
+        return uuidpagamento;
+    }
+
+    public void setUuidpagamento(String uuidcompra) {
+        this.uuidpagamento = uuidcompra;
+    }
+
     @Override
     public String toString() {
         return "Compra{" +
@@ -171,6 +160,7 @@ public class Compra {
                 ", aprovada=" + aprovada +
                 ", estornada=" + estornada +
                 ", paga=" + paga +
+                ", uuidcompra='" + uuidpagamento + '\'' +
                 '}';
     }
 
@@ -179,11 +169,11 @@ public class Compra {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Compra compra = (Compra) o;
-        return Objects.equals(id, compra.id) && Objects.equals(idcartao, compra.idcartao) && Objects.equals(numerocartao, compra.numerocartao) && Objects.equals(titularcartao, compra.titularcartao) && Objects.equals(idusuario, compra.idusuario) && Objects.equals(valor, compra.valor) && Objects.equals(dtHrCompra, compra.dtHrCompra) && Objects.equals(aprovada, compra.aprovada) && Objects.equals(estornada, compra.estornada) && Objects.equals(paga, compra.paga);
+        return Objects.equals(id, compra.id) && Objects.equals(idcartao, compra.idcartao) && Objects.equals(numerocartao, compra.numerocartao) && Objects.equals(titularcartao, compra.titularcartao) && Objects.equals(idusuario, compra.idusuario) && Objects.equals(valor, compra.valor) && Objects.equals(dtHrCompra, compra.dtHrCompra) && Objects.equals(aprovada, compra.aprovada) && Objects.equals(estornada, compra.estornada) && Objects.equals(paga, compra.paga) && Objects.equals(uuidpagamento, compra.uuidpagamento);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, idcartao, numerocartao, titularcartao, idusuario, valor, dtHrCompra, aprovada, estornada, paga);
+        return Objects.hash(id, idcartao, numerocartao, titularcartao, idusuario, valor, dtHrCompra, aprovada, estornada, paga, uuidpagamento);
     }
 }

@@ -1,10 +1,7 @@
 package com.cliente.microrestaurante.modelo;
 
 import javax.persistence.*;
-import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Positive;
-import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.Objects;
 
@@ -44,6 +41,9 @@ public class Pedido {
     @Column(name = "estornado")
     public Boolean estornado;
 
+    @Column(name = "uuidpagamento")
+    public String uuidpagamento;
+
     @Column(name = "dthrpedido")
     public LocalDateTime dtHrPedido;
 
@@ -58,9 +58,7 @@ public class Pedido {
         this.dtHrPedido = dtHrPedido;
     }
 
-    public Pedido(Long id, Long idUsuario, Double valorTotal, Boolean pago, String idPgtoCartao, Boolean aceito,
-                  Boolean pronto, Boolean entregue, Boolean cancelado, Boolean estornado, LocalDateTime dtHrPedido,
-                  LocalDateTime dtHrFinalizado) {
+    public Pedido(Long id, Long idUsuario, Double valorTotal, Boolean pago, String idPgtoCartao, Boolean aceito, Boolean pronto, Boolean entregue, Boolean cancelado, Boolean estornado, String uuidpagamento, LocalDateTime dtHrPedido, LocalDateTime dtHrFinalizado) {
         this.id = id;
         this.idUsuario = idUsuario;
         this.valorTotal = valorTotal;
@@ -71,6 +69,7 @@ public class Pedido {
         this.entregue = entregue;
         this.cancelado = cancelado;
         this.estornado = estornado;
+        this.uuidpagamento = uuidpagamento;
         this.dtHrPedido = dtHrPedido;
         this.dtHrFinalizado = dtHrFinalizado;
     }
@@ -171,6 +170,14 @@ public class Pedido {
         this.dtHrFinalizado = dthrfinalizado;
     }
 
+    public String getUuidpagamento() {
+        return uuidpagamento;
+    }
+
+    public void setUuidpagamento(String uuidcompra) {
+        this.uuidpagamento = uuidcompra;
+    }
+
     @Override
     public String toString() {
         return "Pedido{" +
@@ -184,8 +191,9 @@ public class Pedido {
                 ", entregue=" + entregue +
                 ", cancelado=" + cancelado +
                 ", estornado=" + estornado +
+                ", uuidcompra='" + uuidpagamento + '\'' +
                 ", dtHrPedido=" + dtHrPedido +
-                ", dthrfinalizado=" + dtHrFinalizado +
+                ", dtHrFinalizado=" + dtHrFinalizado +
                 '}';
     }
 
@@ -194,11 +202,11 @@ public class Pedido {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Pedido pedido = (Pedido) o;
-        return Objects.equals(id, pedido.id) && Objects.equals(idUsuario, pedido.idUsuario) && Objects.equals(valorTotal, pedido.valorTotal) && Objects.equals(pago, pedido.pago) && Objects.equals(idPgtoCartao, pedido.idPgtoCartao) && Objects.equals(aceito, pedido.aceito) && Objects.equals(pronto, pedido.pronto) && Objects.equals(entregue, pedido.entregue) && Objects.equals(cancelado, pedido.cancelado) && Objects.equals(estornado, pedido.estornado) && Objects.equals(dtHrPedido, pedido.dtHrPedido) && Objects.equals(dtHrFinalizado, pedido.dtHrFinalizado);
+        return Objects.equals(id, pedido.id) && Objects.equals(idUsuario, pedido.idUsuario) && Objects.equals(valorTotal, pedido.valorTotal) && Objects.equals(pago, pedido.pago) && Objects.equals(idPgtoCartao, pedido.idPgtoCartao) && Objects.equals(aceito, pedido.aceito) && Objects.equals(pronto, pedido.pronto) && Objects.equals(entregue, pedido.entregue) && Objects.equals(cancelado, pedido.cancelado) && Objects.equals(estornado, pedido.estornado) && Objects.equals(uuidpagamento, pedido.uuidpagamento) && Objects.equals(dtHrPedido, pedido.dtHrPedido) && Objects.equals(dtHrFinalizado, pedido.dtHrFinalizado);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, idUsuario, valorTotal, pago, idPgtoCartao, aceito, pronto, entregue, cancelado, estornado, dtHrPedido, dtHrFinalizado);
+        return Objects.hash(id, idUsuario, valorTotal, pago, idPgtoCartao, aceito, pronto, entregue, cancelado, estornado, uuidpagamento, dtHrPedido, dtHrFinalizado);
     }
 }

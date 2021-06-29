@@ -9,6 +9,7 @@ public class CompraDto {
     private String titularcartao;
     private Long idusuario;
     private Double valor;
+    private String uuidpagamento;
 
     public CompraDto() {
     }
@@ -72,5 +73,13 @@ public class CompraDto {
 
     public void setValor(Double valor) {
         this.valor = valor;
+    }
+
+    public String getUuidpagamento() {
+        return uuidpagamento;
+    }
+
+    public void setUuidpagamento(String uuidpagamento) {
+        this.uuidpagamento = uuidpagamento;
     }
 }

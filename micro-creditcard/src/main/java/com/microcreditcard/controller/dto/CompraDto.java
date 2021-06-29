@@ -3,9 +3,6 @@ package com.microcreditcard.controller.dto;
 import com.microcreditcard.modelo.Compra;
 import org.springframework.data.domain.Page;
 
-import javax.persistence.Transient;
-import java.util.Optional;
-
 public class CompraDto {
     private Long id;
     private Long idcartao;
@@ -13,6 +10,7 @@ public class CompraDto {
     private String titularcartao;
     private Long idusuario;
     private Double valor;
+    private String uuidpagamento;
 
     public CompraDto(Compra compra) {
         this.id = compra.getId();
@@ -21,6 +19,7 @@ public class CompraDto {
         this.titularcartao = compra.getTitularcartao();
         this.idusuario = compra.getIdusuario();
         this.valor = compra.getValor();
+        this.uuidpagamento = compra.getUuidpagamento();
     }
 
     public static Page<CompraDto> converter(Page<Compra> compras) {
@@ -73,5 +72,13 @@ public class CompraDto {
 
     public void setValor(Double valor) {
         this.valor = valor;
+    }
+
+    public String getUuidpagamento() {
+        return uuidpagamento;
+    }
+
+    public void setUuidpagamento(String uuidpagamento) {
+        this.uuidpagamento = uuidpagamento;
     }
 }
