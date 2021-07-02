@@ -1,8 +1,10 @@
 package com.cliente.microrestaurante.controller;
 
 import com.cliente.microrestaurante.controller.dto.PedidoDto;
+import com.cliente.microrestaurante.controller.dto.ProdutosPedidoDto;
 import com.cliente.microrestaurante.controller.form.ProdutosPedidoForm;
 import com.cliente.microrestaurante.modelo.Pedido;
+import com.cliente.microrestaurante.repository.PedidoRepositoryJdbc;
 import com.cliente.microrestaurante.service.CompraDto;
 import com.cliente.microrestaurante.service.PagamentoService;
 import com.cliente.microrestaurante.service.PedidoService;
@@ -42,6 +44,16 @@ public class PedidoController {
                                        @PageableDefault(sort = "id", direction = Sort.Direction.ASC, page = 0, size = 10)
                                                Pageable paginacao) {
         return pedidoService.buscarTodos(usuario, paginacao);
+    }
+
+    @GetMapping("/detalhar")
+    public ResponseEntity<List<ProdutosPedidoDto>> detalhar(@RequestParam(required = true) Long usuario,
+                                                            @RequestParam(required = true) Long pedido) {
+        List<ProdutosPedidoDto> produtosPed = PedidoRepositoryJdbc.getProdutosPedido(usuario, pedido);
+        if (produtosPed != null) {
+            return ResponseEntity.ok(produtosPed);
+        }
+        return ResponseEntity.notFound().build();
     }
 
     @PostMapping

@@ -21,12 +21,12 @@ public class AutenticaCreditCardAPi extends TimerTask {
         AutenticaCreditCardApiService serv = new AutenticaCreditCardApiService();
         while (tokenResponse == null) {
             try {
-                System.out.println("Autenticando com API de pagamento - " + new Date());
+                System.out.println("[CreditCardAPI] Autenticando com API de pagamento - " + new Date());
                 RetornoAutenticarTO ret = serv.autenticar(new PedidoAutenticarTO(usuario, senha));
                 tokenResponse = ret.getToken();
             } catch (WebClientRequestException e) {
-                System.out.println("[ERRO] - Falha ao solicitar token do serviço de pagamento!");
-                System.out.println("Tentando novamente...\n");
+                System.out.println("[CreditCardAPI] [ERRO] - Falha ao solicitar token do serviço de pagamento!");
+                System.out.println("[CreditCardAPI] Tentando novamente...\n");
             }
             try {
                 Thread.sleep(3000);
@@ -35,6 +35,6 @@ public class AutenticaCreditCardAPi extends TimerTask {
             }
         }
         token = token + tokenResponse;
-        System.out.println("AUTENTICADO COM O SERVICO DE PAGAMENTO - " + new Date());
+        System.out.println("[CreditCardAPI] AUTENTICADO COM O SERVICO DE PAGAMENTO - " + new Date());
     }
 }
