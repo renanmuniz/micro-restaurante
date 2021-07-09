@@ -44,6 +44,12 @@ public class PedidoService {
 
     public PedidoDto cadastrar(Long idUsuario, List<ProdutosPedidoForm> produtos) {
         Pedido pedido = new Pedido(idUsuario, LocalDateTime.now());
+        pedido.setPago(false);
+        pedido.setAceito(false);
+        pedido.setCancelado(false);
+        pedido.setPronto(false);
+        pedido.setEntregue(false);
+        pedido.setEstornado(false);
         Pedido pedidoSalvo = pedidoRepository.save(pedido);
         Double valorTotalAux = 0.0;
 

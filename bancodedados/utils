@@ -25,9 +25,7 @@ where pedido.id=2
 order by produto.nome ASC; 
 
 
-
-
-
+--
 use creditcarddb;
 
 insert into usuario(nome,senha) values ('R3885','abc123');
@@ -38,3 +36,61 @@ values('1234-5678-9012-3456','RENAN MUNIZ MERLO', 2000.00);
 
 insert into compras(id_cartao,id_usuario,valor,dthrcompra)
 values(1,1,100.0,now());
+
+--
+
+-- retorna pedidos pagos
+select pedido.id, usuario.nome, pedido.valortotal, pedido.dthrpedido, pedido.dthrfinalizado, pedido.uuidpagamento 
+from pedido 
+inner join usuario on (pedido.id_usuario = usuario.id)
+where pago = true and aceito = false and pronto = false and entregue = false and cancelado = false and estornado = false;
+
+-- retornar pedidos aceitos
+select pedido.id, usuario.nome, pedido.valortotal, pedido.dthrpedido, pedido.dthrfinalizado, pedido.uuidpagamento 
+from pedido 
+inner join usuario on (pedido.id_usuario = usuario.id)
+where pago = true and aceito = true and pronto = false and entregue = false and cancelado = false and estornado = false;
+
+-- retornar pedidos prontos
+select pedido.id, usuario.nome, pedido.valortotal, pedido.dthrpedido, pedido.dthrfinalizado, pedido.uuidpagamento 
+from pedido 
+inner join usuario on (pedido.id_usuario = usuario.id)
+where pago = true and aceito = true and pronto = true and entregue = false and cancelado = false and estornado = false;
+
+-- retornar pedidos entregues
+select pedido.id, usuario.nome, pedido.valortotal, pedido.dthrpedido, pedido.dthrfinalizado, pedido.uuidpagamento 
+from pedido 
+inner join usuario on (pedido.id_usuario = usuario.id)
+where pago = true and aceito = true and pronto = true and entregue = true and cancelado = false and estornado = false;
+
+-- retornar pedidos cancelados
+select pedido.id, usuario.nome, pedido.valortotal, pedido.dthrpedido, pedido.dthrfinalizado, pedido.uuidpagamento 
+from pedido 
+inner join usuario on (pedido.id_usuario = usuario.id)
+where pago = true and aceito = false and pronto = false and entregue = false and cancelado = true and estornado = false;
+
+-- retornar pedidos cancelados e estornados
+select pedido.id, usuario.nome, pedido.valortotal, pedido.dthrpedido, pedido.dthrfinalizado, pedido.uuidpagamento 
+from pedido 
+inner join usuario on (pedido.id_usuario = usuario.id)
+where pago = true and aceito = false and pronto = false and entregue = false and cancelado = true and estornado = true;
+
+
+-- detalha pedido
+SELECT produto.nome, produtos_pedido.quantidade, produtos_pedido.valor, produtos_pedido.observacao
+FROM produtos_pedido 
+INNER JOIN pedido on (pedido.id = produtos_pedido.id_pedido)
+INNER JOIN produto on (produtos_pedido.id_produto = produto.id) 
+where pedido.id=2
+order by produto.nome ASC; 
+
+-- busca pedido especifico
+select pedido.id, usuario.nome, pedido.valortotal, pedido.dthrpedido, pedido.pago, pedido.aceito, pedido.pronto, pedido.entregue, pedido.cancelado, pedido.estornado, pedido.dthrfinalizado, pedido.uuidpagamento 
+from pedido 
+inner join usuario on (pedido.id_usuario = usuario.id)
+where pedido.id = 4;
+
+
+
+
+
