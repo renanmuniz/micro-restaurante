@@ -97,4 +97,14 @@ public class CompraController {
         return ResponseEntity.notFound().build();
     }
 
+    @PutMapping("/estornar")
+    @Transactional
+    public ResponseEntity<CompraDto> estornar(@RequestBody @Valid CompraForm form) {
+        CompraDto compra = compraService.estornar(form);
+        if (compra != null) {
+            return ResponseEntity.ok().body(compra);
+        }
+        return ResponseEntity.notFound().build();
+    }
+
 }

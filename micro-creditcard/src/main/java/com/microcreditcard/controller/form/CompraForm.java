@@ -1,9 +1,9 @@
 package com.microcreditcard.controller.form;
 
-import com.microcreditcard.modelo.Cartao;
 import com.microcreditcard.modelo.Compra;
 
 public class CompraForm {
+    private Long idCompra;
     private Long idUsuario;
     private String numeroCartao;
     private Double valor;
@@ -11,10 +11,19 @@ public class CompraForm {
     public CompraForm() {
     }
 
-    public CompraForm(Long idUsuario, String numeroCartao, Double valor) {
+    public CompraForm(Long idCompra, Long idUsuario, String numeroCartao, Double valor) {
+        this.idCompra = idCompra;
         this.idUsuario = idUsuario;
         this.numeroCartao = numeroCartao;
         this.valor = valor;
+    }
+
+    public Long getIdCompra() {
+        return idCompra;
+    }
+
+    public void setIdCompra(Long idCompra) {
+        this.idCompra = idCompra;
     }
 
     public Long getIdUsuario() {

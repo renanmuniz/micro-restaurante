@@ -120,6 +120,19 @@ public class CompraService {
         return null;
     }
 
+    public CompraDto estornar(CompraForm form) {
+        Optional<Compra> compraOptional = compraRepository.findById(form.getIdCompra());
+        Compra compra = null;
+        if(compraOptional.isPresent()) {
+            compra = compraOptional.get();
+            if(compra.aprovada && !compra.paga) {
+                compra.setEstornada(true);
+            }
+            return new CompraDto(compra);
+        }
+        return null;
+    }
+
     // Metodos de utilidade:
 
     public LocalDateTime converterData(String data) {
@@ -145,5 +158,6 @@ public class CompraService {
         }
         return compras;
     }
+
 
 }
