@@ -311,7 +311,7 @@ public class PedidoRepositoryJdbc {
                 "from pedido " +
                 "inner join usuario on (pedido.id_usuario = usuario.id) " +
                 "where pago = true " +
-                "and aceito = false " +
+                "and aceito = true " +
                 "and pronto = false " +
                 "and entregue = false " +
                 "and cancelado = true " +

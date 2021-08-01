@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="9ca59516-8b22-4d7c-9f7d-9b40829d94e5" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/../consumer-jms-email-pedido/.attach_pid6554" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../consumer-jms-email-pedido/.attach_pid6635" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../consumer-jms-email-pedido/.attach_pid8047" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../consumer-jms-email-pedido/.idea/libraries/activemq_all_5_16_2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../consumer-jms-email-pedido/.idea/libraries/jackson_annotations_2_12_3.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../consumer-jms-email-pedido/.idea/libraries/jackson_core_2_12_3.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../consumer-jms-email-pedido/.idea/libraries/jackson_databind_2_12_3.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../consumer-jms-email-pedido/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../consumer-jms-email-pedido/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../consumer-jms-email-pedido/.idea/runConfigurations.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../consumer-jms-email-pedido/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../consumer-jms-email-pedido/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../consumer-jms-email-pedido/consumer-jms-email-pedido.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../consumer-jms-email-pedido/lib/activemq-all-5.16.2.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../consumer-jms-email-pedido/lib/jackson-annotations-2.12.3.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../consumer-jms-email-pedido/lib/jackson-core-2.12.3.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../consumer-jms-email-pedido/lib/jackson-databind-2.12.3.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../consumer-jms-email-pedido/out/production/consumer-jms-email-pedido/TesteProdutor.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../consumer-jms-email-pedido/out/production/consumer-jms-email-pedido/jndi.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../consumer-jms-email-pedido/src/Email.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../consumer-jms-email-pedido/src/TesteConsumidor.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../consumer-jms-email-pedido/src/TesteProdutor.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../consumer-jms-email-pedido/src/jndi.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/runConfigurations.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ConsumidorJms.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Email.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/EnviaEmail.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/jndi.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/Email.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../micro-envio-email/.attach_pid8012" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../micro-envio-email/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../micro-envio-email/.mvn/wrapper/MavenWrapperDownloader.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../micro-envio-email/.mvn/wrapper/maven-wrapper.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../micro-envio-email/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../micro-envio-email/mvnw" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../micro-envio-email/mvnw.cmd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../micro-envio-email/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../micro-envio-email/src/main/java/com/microenvioemail/MicroEnvioEmailApplication.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../micro-envio-email/src/main/java/com/microenvioemail/dominio/Email.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../micro-envio-email/src/main/java/com/microenvioemail/jms/Consumidor.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../micro-envio-email/src/main/java/com/microenvioemail/servico/EnviaEmail.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../micro-envio-email/src/main/resources/application.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../micro-envio-email/src/main/resources/jndi.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../micro-envio-email/src/test/java/com/microenvioemail/MicroEnvioEmailApplicationTests.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../micro-restaurante/src/main/java/com/microrestaurante/AutenticaCreditCardAPi.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../micro-restaurante/src/main/java/com/microrestaurante/controller/dto/CompraDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../micro-restaurante/src/main/java/com/microrestaurante/controller/form/CompraForm.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../micro-restaurante/src/main/java/com/microrestaurante/service/AutenticaCreditCardApiService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../micro-restaurante/src/main/java/com/microrestaurante/service/PedidoAutenticarTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../micro-restaurante/src/main/java/com/microrestaurante/service/RetornoAutenticarTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../micro-creditcard/src/main/java/com/microcreditcard/controller/CompraController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../micro-creditcard/src/main/java/com/microcreditcard/controller/CompraController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../micro-creditcard/src/main/java/com/microcreditcard/repository/CompraRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/../micro-creditcard/src/main/java/com/microcreditcard/repository/CompraRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../micro-creditcard/src/main/java/com/microcreditcard/service/CompraService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../micro-creditcard/src/main/java/com/microcreditcard/service/CompraService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../micro-restaurante/src/main/java/com/microrestaurante/MicroRestauranteApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/../micro-restaurante/src/main/java/com/microrestaurante/MicroRestauranteApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../micro-restaurante/src/main/java/com/microrestaurante/repository/PedidoRepositoryJdbc.java" beforeDir="false" afterPath="$PROJECT_DIR$/../micro-restaurante/src/main/java/com/microrestaurante/repository/PedidoRepositoryJdbc.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../micro-restaurante/src/main/java/com/microrestaurante/service/PedidoService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../micro-restaurante/src/main/java/com/microrestaurante/service/PedidoService.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="ProjectId" id="1w0uEgBNHDrEvPCeUmk3WP45ih4" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/resources" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="restartRequiresConfirmation" value="false" />
+    <property name="settings.editor.selected.configurable" value="Errors" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/resources" />
+      <recent name="$PROJECT_DIR$/src/main/java" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="ConsumidorJms" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="ConsumidorJms" />
+      <module name="email-pedido-jms-consumer" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.ConsumidorJms" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="9ca59516-8b22-4d7c-9f7d-9b40829d94e5" name="Changes" comment="" />
+      <created>1627607717249</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1627607717249</updated>
+      <workItem from="1627607718538" duration="3167000" />
+      <workItem from="1627822228478" duration="4493000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+  </component>
+</project>

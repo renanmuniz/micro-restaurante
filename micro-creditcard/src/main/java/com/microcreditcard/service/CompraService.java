@@ -120,8 +120,8 @@ public class CompraService {
         return null;
     }
 
-    public CompraDto estornar(CompraForm form) {
-        Optional<Compra> compraOptional = compraRepository.findById(form.getIdCompra());
+    public CompraDto estornar(String uuidpagamento) {
+        Optional<Compra> compraOptional = compraRepository.findByUuidpagamento(uuidpagamento);
         Compra compra = null;
         if(compraOptional.isPresent()) {
             compra = compraOptional.get();

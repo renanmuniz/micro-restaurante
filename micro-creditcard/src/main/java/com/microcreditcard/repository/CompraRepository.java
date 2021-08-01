@@ -16,6 +16,8 @@ public interface CompraRepository extends JpaRepository<Compra, Long> {
 
     Page<Compra> findByidusuario(Long id, Pageable paginacao);
 
+    Optional<Compra> findByUuidpagamento(String uuidpagamento);
+
     @Query(value = "select * from compras " +
             "where id_cartao = :idcartao" +
             " and aprovada = true " +

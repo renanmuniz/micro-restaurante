@@ -97,10 +97,10 @@ public class CompraController {
         return ResponseEntity.notFound().build();
     }
 
-    @PutMapping("/estornar")
+    @PutMapping("/estornar/{uuidpagamento}")
     @Transactional
-    public ResponseEntity<CompraDto> estornar(@RequestBody @Valid CompraForm form) {
-        CompraDto compra = compraService.estornar(form);
+    public ResponseEntity<CompraDto> estornar(@PathVariable String uuidpagamento) {
+        CompraDto compra = compraService.estornar(uuidpagamento);
         if (compra != null) {
             return ResponseEntity.ok().body(compra);
         }
