@@ -5,70 +5,26 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9ca59516-8b22-4d7c-9f7d-9b40829d94e5" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/../consumer-jms-email-pedido/.attach_pid6554" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../consumer-jms-email-pedido/.attach_pid6635" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../consumer-jms-email-pedido/.attach_pid8047" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../consumer-jms-email-pedido/.idea/libraries/activemq_all_5_16_2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../consumer-jms-email-pedido/.idea/libraries/jackson_annotations_2_12_3.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../consumer-jms-email-pedido/.idea/libraries/jackson_core_2_12_3.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../consumer-jms-email-pedido/.idea/libraries/jackson_databind_2_12_3.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../consumer-jms-email-pedido/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../consumer-jms-email-pedido/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../consumer-jms-email-pedido/.idea/runConfigurations.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../consumer-jms-email-pedido/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../consumer-jms-email-pedido/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../consumer-jms-email-pedido/consumer-jms-email-pedido.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../consumer-jms-email-pedido/lib/activemq-all-5.16.2.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../consumer-jms-email-pedido/lib/jackson-annotations-2.12.3.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../consumer-jms-email-pedido/lib/jackson-core-2.12.3.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../consumer-jms-email-pedido/lib/jackson-databind-2.12.3.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../consumer-jms-email-pedido/out/production/consumer-jms-email-pedido/TesteProdutor.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../consumer-jms-email-pedido/out/production/consumer-jms-email-pedido/jndi.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../consumer-jms-email-pedido/src/Email.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../consumer-jms-email-pedido/src/TesteConsumidor.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../consumer-jms-email-pedido/src/TesteProdutor.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../consumer-jms-email-pedido/src/jndi.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/runConfigurations.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ConsumidorJms.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Email.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/EnviaEmail.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/jndi.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/Email.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../micro-envio-email/.attach_pid8012" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../micro-envio-email/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../micro-envio-email/.mvn/wrapper/MavenWrapperDownloader.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../micro-envio-email/.mvn/wrapper/maven-wrapper.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../micro-envio-email/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../micro-envio-email/mvnw" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../micro-envio-email/mvnw.cmd" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../micro-envio-email/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../micro-envio-email/src/main/java/com/microenvioemail/MicroEnvioEmailApplication.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../micro-envio-email/src/main/java/com/microenvioemail/dominio/Email.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../micro-envio-email/src/main/java/com/microenvioemail/jms/Consumidor.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../micro-envio-email/src/main/java/com/microenvioemail/servico/EnviaEmail.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../micro-envio-email/src/main/resources/application.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../micro-envio-email/src/main/resources/jndi.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../micro-envio-email/src/test/java/com/microenvioemail/MicroEnvioEmailApplicationTests.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../micro-restaurante/src/main/java/com/microrestaurante/AutenticaCreditCardAPi.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../micro-restaurante/src/main/java/com/microrestaurante/controller/dto/CompraDto.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../micro-restaurante/src/main/java/com/microrestaurante/controller/form/CompraForm.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../micro-restaurante/src/main/java/com/microrestaurante/service/AutenticaCreditCardApiService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../micro-restaurante/src/main/java/com/microrestaurante/service/PedidoAutenticarTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../micro-restaurante/src/main/java/com/microrestaurante/service/RetornoAutenticarTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../micro-creditcard/src/main/java/com/microcreditcard/controller/CompraController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../micro-creditcard/src/main/java/com/microcreditcard/controller/CompraController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../micro-creditcard/src/main/java/com/microcreditcard/repository/CompraRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/../micro-creditcard/src/main/java/com/microcreditcard/repository/CompraRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../micro-creditcard/src/main/java/com/microcreditcard/service/CompraService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../micro-creditcard/src/main/java/com/microcreditcard/service/CompraService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../micro-restaurante/src/main/java/com/microrestaurante/MicroRestauranteApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/../micro-restaurante/src/main/java/com/microrestaurante/MicroRestauranteApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../micro-restaurante/src/main/java/com/microrestaurante/repository/PedidoRepositoryJdbc.java" beforeDir="false" afterPath="$PROJECT_DIR$/../micro-restaurante/src/main/java/com/microrestaurante/repository/PedidoRepositoryJdbc.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../micro-restaurante/src/main/java/com/microrestaurante/service/PedidoService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../micro-restaurante/src/main/java/com/microrestaurante/service/PedidoService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Relatorios/Pedidos/erros.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../micro-restaurante-cliente/.attach_pid13760" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../micro-restaurante-cliente/.attach_pid14026" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../micro-restaurante-cliente/.attach_pid14435" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../micro-restaurante-cliente/.attach_pid14521" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../micro-restaurante-cliente/.attach_pid14698" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../micro-restaurante-cliente/src/main/java/com/cliente/microrestaurante/utils/jasperreports/RelatorioPedido.jrxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../micro-restaurante-cliente/src/main/java/com/cliente/microrestaurante/utils/jasperreports/imagens/pizza2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../micro-restaurante-cliente/src/main/resources/jasperreports.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ConsumidorJms.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ConsumidorJms.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/EnviaEmail.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/EnviaEmail.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ConsumidorJms.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ConsumidorJms.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/EnviaEmail$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/EnviaEmail$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/EnviaEmail.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/EnviaEmail.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../micro-restaurante-cliente/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../micro-restaurante-cliente/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../micro-restaurante-cliente/src/main/java/com/cliente/microrestaurante/AutenticaCreditCardAPi.java" beforeDir="false" afterPath="$PROJECT_DIR$/../micro-restaurante-cliente/src/main/java/com/cliente/microrestaurante/AutenticaCreditCardAPi.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../micro-restaurante-cliente/src/main/java/com/cliente/microrestaurante/controller/PedidoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../micro-restaurante-cliente/src/main/java/com/cliente/microrestaurante/controller/PedidoController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../micro-restaurante-cliente/src/main/java/com/cliente/microrestaurante/service/PedidoService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../micro-restaurante-cliente/src/main/java/com/cliente/microrestaurante/service/PedidoService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../micro-restaurante/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../micro-restaurante/pom.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -140,6 +96,10 @@
       <updated>1627607717249</updated>
       <workItem from="1627607718538" duration="3167000" />
       <workItem from="1627822228478" duration="4493000" />
+      <workItem from="1628002362348" duration="1857000" />
+      <workItem from="1628344927724" duration="216000" />
+      <workItem from="1629381894807" duration="1582000" />
+      <workItem from="1629403128936" duration="208000" />
     </task>
     <servers />
   </component>

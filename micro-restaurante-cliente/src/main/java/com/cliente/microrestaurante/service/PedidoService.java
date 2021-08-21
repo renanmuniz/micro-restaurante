@@ -8,11 +8,13 @@ import com.cliente.microrestaurante.modelo.ProdutosPedido;
 import com.cliente.microrestaurante.repository.PedidoRepository;
 import com.cliente.microrestaurante.repository.ProdutoRepository;
 import com.cliente.microrestaurante.repository.ProdutosPedidoRepository;
+import com.cliente.microrestaurante.utils.jasperreports.RelatorioPdf;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
+import java.io.FileNotFoundException;
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
@@ -53,7 +55,7 @@ public class PedidoService {
         Pedido pedidoSalvo = pedidoRepository.save(pedido);
         Double valorTotalAux = 0.0;
 
-        for(int x = 0; x < produtos.size(); x++) {
+        for (int x = 0; x < produtos.size(); x++) {
             ProdutosPedido produtoPedido = produtos.get(x).converter();
             Produto p = produtoRepository.findById(produtos.get(x).idProduto).get();
             produtoPedido.setIdPedido(pedidoSalvo.id);
@@ -64,17 +66,18 @@ public class PedidoService {
 
         pedido.valorTotal = valorTotalAux;
         pedidoRepository.save(pedido);
+
         return new PedidoDto(pedido);
     }
 
-    public Pedido setarPago(Long idPedido, Boolean pago, String uuidcompra) {
+    public Pedido setarPago(Long idPedido, String uuidcompra) {
         Pedido pedido = pedidoRepository.getOne(idPedido);
         pedido.setUuidpagamento(uuidcompra);
-        pedido.setPago(pago);
+        pedido.setPago(true);
         pedidoRepository.save(pedido);
+        RelatorioPdf.gerarRelatorioPedido(pedido.getId());
         return pedido;
     }
-
 
 
 }

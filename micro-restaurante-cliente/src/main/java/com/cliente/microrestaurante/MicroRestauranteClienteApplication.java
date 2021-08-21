@@ -1,6 +1,7 @@
 package com.cliente.microrestaurante;
 
 import com.cliente.microrestaurante.config.jdbc.TestaConexao;
+import com.cliente.microrestaurante.utils.jasperreports.RelatorioPdf;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.data.web.config.EnableSpringDataWebSupport;
@@ -25,8 +26,6 @@ public class MicroRestauranteClienteApplication {
         Timer timer = new Timer();
         AutenticaCreditCardAPi autentica = new AutenticaCreditCardAPi();
         timer.schedule(autentica, new Date(), 500000); //milliseconds
-
-
 
     }
 }

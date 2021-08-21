@@ -35,6 +35,7 @@ public class ConsumidorJms {
 
                 EnviaEmail enviaEmail = new EnviaEmail();
                 enviaEmail.enviar(email.endereco, email.assunto, email.conteudo);
+
             } catch (Exception e) {
                 e.printStackTrace();
             }

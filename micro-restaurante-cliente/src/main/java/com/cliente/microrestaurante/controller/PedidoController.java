@@ -8,6 +8,7 @@ import com.cliente.microrestaurante.repository.PedidoRepositoryJdbc;
 import com.cliente.microrestaurante.service.CompraDto;
 import com.cliente.microrestaurante.service.PagamentoService;
 import com.cliente.microrestaurante.service.PedidoService;
+import com.cliente.microrestaurante.utils.jasperreports.RelatorioPdf;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -17,6 +18,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.transaction.Transactional;
+import java.io.FileNotFoundException;
 import java.util.List;
 
 @RestController
@@ -57,19 +59,17 @@ public class PedidoController {
     }
 
     @PostMapping
-    @Transactional
     public ResponseEntity<PedidoDto> cadastrar(@RequestParam(required = true) Long idUsuario,
                                                @RequestParam(required = true) String numeroCartao,
                                                @RequestBody List<ProdutosPedidoForm> produtos) {
         PedidoDto pedido = pedidoService.cadastrar(idUsuario, produtos);
         CompraDto compra = pagamentoService.pagar(1L, numeroCartao, pedido.getValorTotal());
-        if(compra==null) {
-            pedidoService.setarPago(pedido.getId(),false, "");
+        if (compra == null) {
             return ResponseEntity.badRequest().build();
         }
-        Pedido pedidoPago = pedidoService.setarPago(pedido.getId(),true, compra.getUuidpagamento());
-        return ResponseEntity.ok(new PedidoDto(pedidoPago));
+        Pedido pedidoPago = pedidoService.setarPago(pedido.getId(), compra.getUuidpagamento());
 
+        return ResponseEntity.ok(new PedidoDto(pedidoPago));
     }
 
 }

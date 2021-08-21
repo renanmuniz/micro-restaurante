@@ -19,6 +19,7 @@ public class AutenticaCreditCardAPi extends TimerTask {
     @Override
     public void run() {
         AutenticaCreditCardApiService serv = new AutenticaCreditCardApiService();
+        tokenResponse = null;
         while (tokenResponse == null) {
             try {
                 System.out.println("[CreditCardAPI] Autenticando com API de pagamento - " + new Date());
